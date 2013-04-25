@@ -26,8 +26,8 @@ namespace Opdrachten_week_2
             ellipse.Width = width;
             ellipse.Height = height;
 
-            ellipse.SetValue(Canvas.LeftProperty, xPos);
-            ellipse.SetValue(Canvas.TopProperty, yPos);
+            ellipse.SetValue(Canvas.LeftProperty, (double)xPos);
+            ellipse.SetValue(Canvas.TopProperty, (double)yPos);
 
             return ellipse;
         }

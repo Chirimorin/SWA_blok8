@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Opdrachten_week_2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="361" Width="525">
+        Title="ClownTekenaar" Height="361" Width="525">
     <Grid Background="Beige">
         <GroupBox Header="Instellingen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="273" Width="167">
             <Grid>
@@ -18,23 +18,23 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <CheckBox Content="Linkeroog" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Rechteroog" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Linkerwenkbrauw" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Rechterwenkbrauw" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Neus" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Mond" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Rood om de mond" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Blos op de wangen" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Strikje" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Hoedje" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Haar" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Linkeroog" x:Name="Linkeroog" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Rechteroog" x:Name="Rechteroog"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Linkerwenkbrauw" x:Name="Linkerwenkbrauw" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Rechterwenkbrauw" x:Name="Rechterwenkbrauw" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Neus" x:Name="Neus" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Mond" x:Name="Mond" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Rood om de mond" x:Name="RoodOmMond" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Blos op de wangen" x:Name="BlosOpWangen" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Strikje" x:Name="Strikje" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Hoedje" x:Name="Hoedje" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Haar" x:Name="Haar" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
 
             </Grid>
         </GroupBox>
-        <GroupBox Header="Clown" HorizontalAlignment="Left" Margin="207,10,0,0" VerticalAlignment="Top" Height="273" Width="289">
-            <Canvas Name="canvas" Background="White" HorizontalAlignment="Left" Height="252" VerticalAlignment="Top" Width="279" Margin="0,0,-2,-1"/>
+        <GroupBox Header="Clown" HorizontalAlignment="Left" Margin="207,10,0,0" VerticalAlignment="Top" Height="300" Width="289">
+            <Canvas Name="canvas" Background="White" HorizontalAlignment="Center" Height="260" VerticalAlignment="Center" Width="260" Margin="0,0,0,0"/>
         </GroupBox>
-        <Button Content="Start" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Start" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
     </Grid>
 </Window>

@@ -24,5 +24,17 @@ namespace Opdrachten_week_2
         {
             InitializeComponent();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            canvas.Children.Clear();
+            IComponent component = new HoofdDecorator(null);
+            if ((bool)Linkeroog.IsChecked)
+                component = new LinkerOogDecorator(component);
+            if ((bool)Rechteroog.IsChecked)
+                component = new RechterOogDecorator(component);
+
+            component.Draw(canvas);
+        }
     }
 }
