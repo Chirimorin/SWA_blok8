@@ -18,17 +18,17 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <CheckBox Content="Linkeroog" x:Name="Linkeroog" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Rechteroog" x:Name="Rechteroog"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Linkerwenkbrauw" x:Name="Linkerwenkbrauw" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Rechterwenkbrauw" x:Name="Rechterwenkbrauw" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Neus" x:Name="Neus" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Mond" x:Name="Mond" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Rood om de mond" x:Name="RoodOmMond" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Blos op de wangen" x:Name="BlosOpWangen" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Strikje" x:Name="Strikje" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Hoedje" x:Name="Hoedje" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                <CheckBox Content="Haar" x:Name="Haar" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Content="Linkeroog" x:Name="Linkeroog" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" />
+                <CheckBox Content="Rechteroog" x:Name="Rechteroog"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" />
+                <CheckBox Content="Linkerwenkbrauw" x:Name="Linkerwenkbrauw" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" />
+                <CheckBox Content="Rechterwenkbrauw" x:Name="Rechterwenkbrauw" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" />
+                <CheckBox Content="Neus" x:Name="Neus" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" />
+                <CheckBox Content="Mond" x:Name="Mond" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" />
+                <CheckBox Content="Rood om de mond" x:Name="RoodOmMond" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" />
+                <CheckBox Content="Blos op de wangen" x:Name="BlosOpWangen" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" />
+                <CheckBox Content="Strikje" x:Name="Strikje" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" />
+                <CheckBox Content="Hoedje" x:Name="Hoedje" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" />
+                <CheckBox Content="Haar" x:Name="Haar" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" />
 
             </Grid>
         </GroupBox>

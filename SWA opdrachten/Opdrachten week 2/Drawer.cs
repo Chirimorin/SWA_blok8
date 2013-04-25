@@ -53,5 +53,28 @@ namespace Opdrachten_week_2
 
             return triangle;
         }
+
+        public static Polygon DrawRectangle(Brush fillColor, int strokeThickness, Brush strokeColor, int x1, int x2, int y1, int y2)
+        {
+            Polygon rectangle = new Polygon();
+            rectangle.Fill = fillColor;
+
+            if (strokeThickness > 0)
+            {
+                rectangle.StrokeThickness = strokeThickness;
+                rectangle.Stroke = strokeColor;
+            }
+
+            PointCollection pointCollection = new PointCollection(4);
+            pointCollection.Add(new Point(x1, y1));
+            pointCollection.Add(new Point(x1, y2));
+            pointCollection.Add(new Point(x2, y2));
+            pointCollection.Add(new Point(x2, y1));
+
+            rectangle.Points = pointCollection;
+
+            return rectangle;
+
+        }
     }
 }

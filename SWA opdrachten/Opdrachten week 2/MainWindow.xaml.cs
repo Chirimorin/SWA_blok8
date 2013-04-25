@@ -28,7 +28,11 @@ namespace Opdrachten_week_2
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             canvas.Children.Clear();
-            IComponent component = new HoofdDecorator(null);
+            IComponent component = null;
+
+            if ((bool)Strikje.IsChecked) //Strikje eerst, komt achter hoofd
+                component = new StrikjeDecorator(component);
+            component = new HoofdDecorator(component);
             if ((bool)Linkeroog.IsChecked)
                 component = new LinkerOogDecorator(component);
             if ((bool)Rechteroog.IsChecked)
@@ -39,14 +43,12 @@ namespace Opdrachten_week_2
                 component = new RechterWenkbrauwDecorator(component);
             if ((bool)Neus.IsChecked)
                 component = new NeusDecorator(component);
-            if ((bool)Mond.IsChecked)
-                component = new MondDecorator(component);
             if ((bool)RoodOmMond.IsChecked)
                 component = new RoodOmMondDecorator(component);
+            if ((bool)Mond.IsChecked)
+                component = new MondDecorator(component);
             if ((bool)BlosOpWangen.IsChecked)
                 component = new BlosOpWangenDecorator(component);
-            if ((bool)Strikje.IsChecked)
-                component = new StrikjeDecorator(component);
             if ((bool)Hoedje.IsChecked)
                 component = new HoedjeDecorator(component);
             if ((bool)Haar.IsChecked)

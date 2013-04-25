@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Opdrachten_week_2
 {
@@ -18,7 +19,8 @@ namespace Opdrachten_week_2
         {
             base.Draw(c);
             
-            //Drawing here
+            c.Children.Add(Drawer.DrawEllipse(Brushes.Blue, 1, Brushes.Black, 35, 35, 75, 140));
+            c.Children.Add(Drawer.DrawEllipse(Brushes.Blue, 1, Brushes.Black, 35, 35, 150, 140));
         }
     }
 }

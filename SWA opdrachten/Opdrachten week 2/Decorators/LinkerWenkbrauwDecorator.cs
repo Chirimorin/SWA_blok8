@@ -18,8 +18,7 @@ namespace Opdrachten_week_2
         public override void Draw(Canvas c)
         {
             base.Draw(c);
-            
-            //Drawing here
+            c.Children.Add(Drawer.DrawTriangle(Brushes.Blue, 1, Brushes.Black, 102, 110, 110, 95, 95, 85));
         }
     }
 }
