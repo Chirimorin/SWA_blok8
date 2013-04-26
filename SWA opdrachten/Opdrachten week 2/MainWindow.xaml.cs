@@ -43,12 +43,12 @@ namespace Opdrachten_week_2
                 component = new RechterWenkbrauwDecorator(component);
             if ((bool)Neus.IsChecked)
                 component = new NeusDecorator(component);
+            if ((bool)BlosOpWangen.IsChecked)
+                component = new BlosOpWangenDecorator(component);
             if ((bool)RoodOmMond.IsChecked)
                 component = new RoodOmMondDecorator(component);
             if ((bool)Mond.IsChecked)
                 component = new MondDecorator(component);
-            if ((bool)BlosOpWangen.IsChecked)
-                component = new BlosOpWangenDecorator(component);
             if ((bool)Hoedje.IsChecked)
                 component = new HoedjeDecorator(component);
             if ((bool)Haar.IsChecked)

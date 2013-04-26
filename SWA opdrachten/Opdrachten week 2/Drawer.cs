@@ -76,5 +76,19 @@ namespace Opdrachten_week_2
             return rectangle;
 
         }
+
+        public static Line DrawLine(Brush color, int thickness, int x1, int x2, int y1, int y2)
+        {
+            Line line = new Line();
+            line.Stroke = color;
+            line.StrokeThickness = thickness;
+            line.X1 = x1;
+            line.X2 = x2;
+            line.Y1 = y1;
+            line.Y2 = y2;
+
+            return line;
+
+        }
     }
 }
