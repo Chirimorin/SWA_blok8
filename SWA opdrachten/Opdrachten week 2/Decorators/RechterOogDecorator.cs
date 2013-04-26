@@ -19,7 +19,7 @@ namespace Opdrachten_week_2
         {
             base.Draw(c);
             c.Children.Add(Drawer.DrawEllipse(Brushes.White, 1, Brushes.Black, 12, 16, 148, 100));
-            c.Children.Add(Drawer.DrawEllipse(Brushes.Green, 0, Brushes.Black, 6, 8, 151, 104));
+            c.Children.Add(Drawer.DrawEllipse(Brushes.Green, 0, Brushes.Black, 6, 8, 150, 104));
         }
     }
 }
