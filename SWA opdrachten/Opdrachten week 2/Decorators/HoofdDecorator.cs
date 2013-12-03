@@ -8,16 +8,14 @@ using System.Windows.Media;
 
 namespace Opdrachten_week_2
 {
-    public class HoofdDecorator : BasicDecorator
+    public class HoofdStrategy : IComponent
     {
-        public HoofdDecorator(IComponent component)
-            : base(component)
+        public HoofdStrategy()
         {
         }
 
-        public override void Draw(Canvas c)
+        public void Draw(Canvas c)
         {
-            base.Draw(c);
             //Omtrek hoofd
             c.Children.Add(Drawer.DrawEllipse(Brushes.White, 1, Brushes.Black, 140, 140, 60, 60));
             //Linkeroor

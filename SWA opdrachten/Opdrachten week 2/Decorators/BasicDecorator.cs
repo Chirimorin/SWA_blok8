@@ -18,10 +18,7 @@ namespace Opdrachten_week_2
 
         public virtual void Draw(Canvas c)
         {
-            if (_component != null)
-            {
-                _component.Draw(c);
-            }
+            _component.Draw(c);
         }
 
     }

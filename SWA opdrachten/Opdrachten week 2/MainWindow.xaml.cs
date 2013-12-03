@@ -28,31 +28,23 @@ namespace Opdrachten_week_2
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             canvas.Children.Clear();
-            IComponent component = null;
+            
 
-            if ((bool)Strikje.IsChecked) //Strikje eerst, komt achter hoofd
-                component = new StrikjeDecorator(component);
-            component = new HoofdDecorator(component);
-            if ((bool)Linkeroog.IsChecked)
-                component = new LinkerOogDecorator(component);
-            if ((bool)Rechteroog.IsChecked)
-                component = new RechterOogDecorator(component);
-            if ((bool)Linkerwenkbrauw.IsChecked)
-                component = new LinkerWenkbrauwDecorator(component);
-            if ((bool)Rechterwenkbrauw.IsChecked)
-                component = new RechterWenkbrauwDecorator(component);
-            if ((bool)Neus.IsChecked)
-                component = new NeusDecorator(component);
-            if ((bool)BlosOpWangen.IsChecked)
-                component = new BlosOpWangenDecorator(component);
-            if ((bool)RoodOmMond.IsChecked)
-                component = new RoodOmMondDecorator(component);
-            if ((bool)Mond.IsChecked)
-                component = new MondDecorator(component);
-            if ((bool)Hoedje.IsChecked)
-                component = new HoedjeDecorator(component);
-            if ((bool)Haar.IsChecked)
-                component = new HaarDecorator(component);
+            bool[] isChecked = new bool[11];
+            isChecked[0] = (bool)Strikje.IsChecked;
+            isChecked[1] = (bool)Linkeroog.IsChecked;
+            isChecked[2] = (bool)Rechteroog.IsChecked;
+            isChecked[3] = (bool)Linkerwenkbrauw.IsChecked;
+            isChecked[4] = (bool)Rechterwenkbrauw.IsChecked;
+            isChecked[5] = (bool)Neus.IsChecked;
+            isChecked[6] = (bool)BlosOpWangen.IsChecked;
+            isChecked[7] = (bool)RoodOmMond.IsChecked;
+            isChecked[8] = (bool)Mond.IsChecked;
+            isChecked[9] = (bool)Hoedje.IsChecked;
+            isChecked[10] = (bool)Haar.IsChecked;
+
+            IComponent component = ClownFactory.create(isChecked);
+            
 
             component.Draw(canvas);
         }

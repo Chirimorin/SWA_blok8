@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClownFactory.cs" />
     <Compile Include="Decorators\BlosOpWangenDecorator.cs" />
     <Compile Include="Decorators\HaarDecorator.cs" />
     <Compile Include="Decorators\HoedjeDecorator.cs" />
