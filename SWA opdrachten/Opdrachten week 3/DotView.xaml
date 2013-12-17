@@ -1,0 +1,24 @@
+﻿<Window x:Class="Opdrachten_week_3.DotView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DotView" Height="300" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Ellipse Name="Dot1" Width="50" Height="50" Grid.Row="0" Grid.Column="0" Fill="Black" Visibility="Hidden" />
+        <Ellipse Name="Dot2" Width="50" Height="50" Grid.Row="0" Grid.Column="2" Fill="Black" Visibility="Hidden" />
+        <Ellipse Name="Dot3" Width="50" Height="50" Grid.Row="1" Grid.Column="0" Fill="Black" Visibility="Hidden" />
+        <Ellipse Name="Dot4" Width="50" Height="50" Grid.Row="1" Grid.Column="1" Fill="Black" Visibility="Hidden" />
+        <Ellipse Name="Dot5" Width="50" Height="50" Grid.Row="1" Grid.Column="2" Fill="Black" Visibility="Hidden" />
+        <Ellipse Name="Dot6" Width="50" Height="50" Grid.Row="2" Grid.Column="0" Fill="Black" Visibility="Hidden" />
+        <Ellipse Name="Dot7" Width="50" Height="50" Grid.Row="2" Grid.Column="2" Fill="Black" Visibility="Hidden" />
+    </Grid>
+</Window>

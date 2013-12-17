@@ -1,0 +1,9 @@
+﻿<Window x:Class="Opdrachten_week_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button Content="Rol Dobbelsteen" Click="Button_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="100" />
+
+    </Grid>
+</Window>
