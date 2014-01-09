@@ -9,11 +9,15 @@ namespace Opdrachten_week_3
     abstract class Factory
     {
         private static Dice dice;
-        public static Dice getDice()
+
+        public static Dice Dice
         {
-            if (dice == null)
-                dice = new Dice();
-            return dice;
+            get
+            {
+                if (dice == null)
+                    dice = new Dice();
+                return dice;
+            }
         }
     }
 }

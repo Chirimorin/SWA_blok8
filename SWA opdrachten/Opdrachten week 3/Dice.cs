@@ -6,31 +6,28 @@ using System.Threading.Tasks;
 
 namespace Opdrachten_week_3
 {
-    class Dice
+    class Dice : IDice
     {
         private Random RNG;
-        public delegate void ChangedEventHandler(object sender, EventArgs e);
-        public event ChangedEventHandler DiceRolled;
-        public int Value { get; set; }
+
+        private int _value;
+        public int Value 
+        {
+            get { return _value; }
+            set { _value = value; notify(); }
+        }
 
         public Dice()
         {
-            Value = 0;
+            _value = 0;
             RNG = new Random();
         }
 
         public void Roll()
         {
             Value = RNG.Next(1,7);
-            OnChanged(EventArgs.Empty);
         }
 
-        protected virtual void OnChanged(EventArgs e)
-        {
-            if (DiceRolled != null)
-                DiceRolled(this, e);
-        }
-
-
+        
     }
 }

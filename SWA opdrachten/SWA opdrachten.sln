@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdrachten week 1", "Opdrac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdrachten week 3", "Opdrachten week 3\Opdrachten week 3.csproj", "{581B19D7-C807-49B0-978C-528B5186F217}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdrachten week 4 5 6", "Opdrachten week 4 5 6\Opdrachten week 4 5 6.csproj", "{EF28F8F9-A275-4416-9519-A3D100C194F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{581B19D7-C807-49B0-978C-528B5186F217}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{581B19D7-C807-49B0-978C-528B5186F217}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{581B19D7-C807-49B0-978C-528B5186F217}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF28F8F9-A275-4416-9519-A3D100C194F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF28F8F9-A275-4416-9519-A3D100C194F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF28F8F9-A275-4416-9519-A3D100C194F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF28F8F9-A275-4416-9519-A3D100C194F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

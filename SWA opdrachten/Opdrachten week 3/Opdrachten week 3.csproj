@@ -73,6 +73,8 @@
       <DependentUpon>DotView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Factory.cs" />
+    <Compile Include="IDice.cs" />
+    <Compile Include="IObserver.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

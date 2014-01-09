@@ -17,7 +17,7 @@ namespace Opdrachten_week_3
     /// <summary>
     /// Interaction logic for DotView.xaml
     /// </summary>
-    public partial class DotView : Window
+    public partial class DotView : Window, IObserver
     {
         private Ellipse[] Dots;
         public DotView()
@@ -33,13 +33,13 @@ namespace Opdrachten_week_3
             Dots[6] = Dot7;
         }
 
-        public void DiceRolled(Object sender, EventArgs e)
+        public void Update()
         {
             for (int i = 0; i < 7; i++ )
             {
                 Dots[i].Visibility = Visibility.Hidden;
             }
-                switch (Factory.getDice().Value)
+                switch (Factory.Dice.Value)
                 {
                     case 1:
                         SetVisible(3);

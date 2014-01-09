@@ -22,12 +22,12 @@ namespace Opdrachten_week_3
             numberView = new NumberView();
             numberView.Show();
             numberView.Closed += WindowClosed;
-            Factory.getDice().DiceRolled += numberView.DiceRolled;
+            Factory.Dice.attach(numberView);
 
             dotView = new DotView();
             dotView.Show();
             dotView.Closed += WindowClosed;
-            Factory.getDice().DiceRolled += dotView.DiceRolled;
+            Factory.Dice.attach(dotView);
 
             openWindows = 2;
         }

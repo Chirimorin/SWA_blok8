@@ -27,7 +27,7 @@ namespace Opdrachten_week_3
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Factory.getDice().Roll();
+            Factory.Dice.Roll();
         }
     }
 }
