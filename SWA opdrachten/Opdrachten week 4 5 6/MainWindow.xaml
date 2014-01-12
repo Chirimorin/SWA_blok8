@@ -1,8 +1,334 @@
 ﻿<Window x:Class="Opdrachten_week_4_5_6.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="Sudoku" Height="424" Width="525"
+        Background="Beige"
+        ResizeMode="CanMinimize">
+    <Grid Name="MainGrid" Margin="10,10,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+    
+        <Grid Name="SpeelVeld" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan="3" VerticalAlignment="Top" Stroke="Black" StrokeThickness="3" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+        <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="3" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+        <Line Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="3" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+        <Line Grid.Column="0" Grid.Row="2" Grid.RowSpan="1" Grid.ColumnSpan="3" VerticalAlignment="Bottom" Stroke="Black" StrokeThickness="3" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+        <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" HorizontalAlignment="Left"  Stroke="Black" StrokeThickness="3" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+        <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="3" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+        <Line Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="3" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+        <Line Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="1" HorizontalAlignment="Right" Stroke="Black" StrokeThickness="3" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+
+        <Grid Name="Grid1" Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Label Content="{Binding Path=Lbl00}" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl01}" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl02}" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl10}" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl11}" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl12}" FontSize="20" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl20}" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl21}" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl22}" FontSize="20" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Name="Grid2" Grid.Column="1" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Label Content="{Binding Path=Lbl30}" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl31}" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl32}" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl40}" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl41}" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl42}" FontSize="20" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl50}" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl51}" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl52}" FontSize="20" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Name="Grid3" Grid.Column="2" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Label Content="{Binding Path=Lbl60}" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl61}" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl62}" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl70}" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl71}" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl72}" FontSize="20" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl80}" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl81}" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl82}" FontSize="20" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Name="Grid4" Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Label Content="{Binding Path=Lbl03}" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl04}" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl05}" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl13}" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl14}" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl15}" FontSize="20" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl23}" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl24}" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl25}" FontSize="20" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Name="Grid5" Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Label Content="{Binding Path=Lbl33}" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl34}" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl35}" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl43}" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl44}" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl45}" FontSize="20" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl53}" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl54}" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl55}" FontSize="20" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Name="Grid6" Grid.Column="2" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Label Content="{Binding Path=Lbl63}" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl64}" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl65}" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl73}" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl74}" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl75}" FontSize="20" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl83}" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl84}" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl85}" FontSize="20" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Name="Grid7" Grid.Column="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Label Content="{Binding Path=Lbl06}" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl07}" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl08}" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl16}" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl17}" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl18}" FontSize="20" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl26}" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl27}" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl28}" FontSize="20" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Name="Grid8" Grid.Column="1" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Label Content="{Binding Path=Lbl36}" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl37}" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl38}" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl46}" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl47}" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl48}" FontSize="20" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl56}" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl57}" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl58}" FontSize="20" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Name="Grid9" Grid.Column="2" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Center" Stroke="Black" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Line Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="1" Y2="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}" />
+            <Label Content="{Binding Path=Lbl66}" FontSize="20" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl67}" FontSize="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl68}" FontSize="20" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl76}" FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl77}" FontSize="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl78}" FontSize="20" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl86}" FontSize="20" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl87}" FontSize="20" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Content="{Binding Path=Lbl88}" FontSize="20" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+    </Grid>
+
+        <Grid Name="Buttons" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Label Content="Rij:" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <ComboBox Name="Row" HorizontalAlignment="Right" VerticalAlignment="Center" SelectedIndex="0" Width="75">
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>6</ComboBoxItem>
+                <ComboBoxItem>7</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>9</ComboBoxItem>
+            </ComboBox>
+            
+            <Label Content="Kolom:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1"/>
+            <ComboBox Name="Column" HorizontalAlignment="Right" VerticalAlignment="Center" SelectedIndex="0" Width="50" Grid.Row="1">
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>6</ComboBoxItem>
+                <ComboBoxItem>7</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>9</ComboBoxItem>
+            </ComboBox>
+            
+            <Label Content="Waarde:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"/>
+            <ComboBox Name="Value" HorizontalAlignment="Right" VerticalAlignment="Center" SelectedIndex="0" Width="50" Grid.Row="2">
+                <ComboBoxItem>Leeg</ComboBoxItem>
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>6</ComboBoxItem>
+                <ComboBoxItem>7</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>9</ComboBoxItem>
+            </ComboBox>
+            
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Content="Vul In" Click="VulIn_Click"/>
+
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Content="Hint" Click="Hint_Click"/>
+
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" Content="Controleer Alles" Click="Controleer_Click"/>
+
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" Content="Reset Spel" Click="Reset_Click"/>
+
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7" Content="Nieuw Spel" Click="Nieuw_Click"/>
+            
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8" Content="Cheat Knop" Click="Cheat_Click"/>
+        </Grid>
     </Grid>
 </Window>

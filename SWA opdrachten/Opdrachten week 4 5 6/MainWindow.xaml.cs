@@ -20,23 +20,52 @@ namespace Opdrachten_week_4_5_6
     /// </summary>
     public partial class MainWindow : Window
     {
-        private short val;
+        private MainWindowModel _mainWindowModel;
+        private SudokuController _sudokuController;
         public MainWindow()
         {
             InitializeComponent();
-            Sudoku.Game game = new Sudoku.Game();
-            game.create();
-            
-            for (short y = 1; y <= 9; y++)
+            _mainWindowModel = new MainWindowModel();
+            DataContext = _mainWindowModel;
+            _sudokuController = new SudokuController(_mainWindowModel);
+            _mainWindowModel.RegisterController(_sudokuController);
+        }
+
+        private void VulIn_Click(object sender, RoutedEventArgs e)
+        {
+            _sudokuController.SetValueWithNotify((Row.SelectedIndex+1), (Column.SelectedIndex+1), (Value.SelectedIndex));
+        }
+
+        private void Controleer_Click(object sender, RoutedEventArgs e)
+        {
+            if (_sudokuController.CheckGame())
             {
-                for (short x = 1; x <= 9; x++)
-                {
-                    
-                    game.get(x, y, out val);
-                    Console.Write(val.ToString());
-                }
-                Console.WriteLine();
+                MessageBox.Show("Alles (tot nu toe) is correct!");
             }
+            else
+            {
+                MessageBox.Show("Er zitten nog wat foutjes in je sudoku.");
+            }
+        }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            _sudokuController.ResetGame();
+        }
+
+        private void Nieuw_Click(object sender, RoutedEventArgs e)
+        {
+            _sudokuController.NewGame();
+        }
+
+        private void Cheat_Click(object sender, RoutedEventArgs e)
+        {
+            _sudokuController.Cheat();
+        }
+
+        private void Hint_Click(object sender, RoutedEventArgs e)
+        {
+            _sudokuController.Hint();
         }
     }
 }
