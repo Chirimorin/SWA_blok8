@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Opdrachten_week_4_5_6
+namespace sudokubasis
 {
-    class SudokuController
+    public class SudokuController
     {
-        private MainWindowModel _mainWindowModel;
+        private IPropertyChanged _propertyChanged;
         private Sudoku.Game _game;
 
-        public SudokuController(MainWindowModel mainWindowModel)
+        public SudokuController(IPropertyChanged propertyChanged)
         {
-            _mainWindowModel = mainWindowModel;
+            _propertyChanged = propertyChanged;
             _game = new Sudoku.Game();
             _game.create();
-            _mainWindowModel.NotifyPropertyChanged();
+            _propertyChanged.NotifyPropertyChanged();
         }
 
         /// <summary>
@@ -27,15 +27,13 @@ namespace Opdrachten_week_4_5_6
         /// <returns>The string representation of the fields value.</returns>
         public string GetValue(int x, int y)
         {
+            short val;
+            _game.get((short)x, (short)y, out val);
+            if (val == 0)
             {
-                short val;
-                _game.get((short)x, (short)y, out val);
-                if (val == 0)
-                {
-                    return "";
-                }
-                return val.ToString();
+                return "";
             }
+            return val.ToString();
         }
 
         /// <summary>
@@ -48,7 +46,7 @@ namespace Opdrachten_week_4_5_6
         {
             if (SetValueNoNotify(row, column, value))
             {
-                _mainWindowModel.NotifyPropertyChanged();
+                _propertyChanged.NotifyPropertyChanged();
             }
         }
 
@@ -102,7 +100,7 @@ namespace Opdrachten_week_4_5_6
                     SetValueNoNotify(y, x, 0);
                 }
             }
-            _mainWindowModel.NotifyPropertyChanged();
+            _propertyChanged.NotifyPropertyChanged();
         }
 
         /// <summary>
@@ -112,7 +110,7 @@ namespace Opdrachten_week_4_5_6
         {
             _game = new Sudoku.Game();
             _game.create();
-            _mainWindowModel.NotifyPropertyChanged();
+            _propertyChanged.NotifyPropertyChanged();
         }
 
         /// <summary>
@@ -136,7 +134,7 @@ namespace Opdrachten_week_4_5_6
                     }
                 }
             }
-            _mainWindowModel.NotifyPropertyChanged();
+            _propertyChanged.NotifyPropertyChanged();
         }
 
         /// <summary>

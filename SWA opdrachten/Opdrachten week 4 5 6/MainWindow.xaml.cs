@@ -21,13 +21,14 @@ namespace Opdrachten_week_4_5_6
     public partial class MainWindow : Window
     {
         private MainWindowModel _mainWindowModel;
-        private SudokuController _sudokuController;
+        private sudokubasis.SudokuController _sudokuController;
+
         public MainWindow()
         {
             InitializeComponent();
             _mainWindowModel = new MainWindowModel();
             DataContext = _mainWindowModel;
-            _sudokuController = new SudokuController(_mainWindowModel);
+            _sudokuController = new sudokubasis.SudokuController(_mainWindowModel);
             _mainWindowModel.RegisterController(_sudokuController);
         }
 

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Opdrachten_week_4_5_6
 {
-    class MainWindowModel : INotifyPropertyChanged
+    public class MainWindowModel : sudokubasis.IPropertyChanged
     {
-        private SudokuController _controller;
+        private sudokubasis.SudokuController _controller;
 
         #region Labels
         public string Lbl00 { get { return _controller.GetValue(1, 1); } }
@@ -117,7 +117,7 @@ namespace Opdrachten_week_4_5_6
         /// Registers the controller to this object.
         /// </summary>
         /// <param name="controller">The controller to be registered.</param>
-        public void RegisterController(SudokuController controller)
+        public void RegisterController(sudokubasis.SudokuController controller)
         {
             _controller = controller;
         }
