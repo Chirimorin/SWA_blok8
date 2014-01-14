@@ -39,12 +39,12 @@ namespace sudokubasis
         /// <summary>
         /// Sets the value of the given field. Will send a notification if a change occurs. 
         /// </summary>
-        /// <param name="row">The row to change.</param>
-        /// <param name="column">The column to change.</param>
+        /// <param name="x">The x to change.</param>
+        /// <param name="y">The y to change.</param>
         /// <param name="value">The new value that the field should be set to.</param>
-        public void SetValueWithNotify(int row, int column, int value)
+        public void SetValueWithNotify(int x, int y, int value)
         {
-            if (SetValueNoNotify(row, column, value))
+            if (SetValueNoNotify(x, y, value))
             {
                 _propertyChanged.NotifyPropertyChanged();
             }
@@ -55,14 +55,14 @@ namespace sudokubasis
         /// Use if a batch of fields should be changed and manually call NotifyPropertyChanged() of the ViewModel yourself.
         /// For single values, use SetValueWithNotify(int row, int column, int value);
         /// </summary>
-        /// <param name="row">The row to change.</param>
-        /// <param name="column">The column to change.</param>
+        /// <param name="x">The x to change.</param>
+        /// <param name="y">The y to change.</param>
         /// <param name="value">The new value that the field should be set to.</param>
         /// <returns>Returns true if the field was changed.</returns>
-        public bool SetValueNoNotify(int row, int column, int value)
+        public bool SetValueNoNotify(int x, int y, int value)
         {
             int succeeded;
-            _game.set((short)row, (short)column, (short)value, out succeeded);
+            _game.set((short)x, (short)y, (short)value, out succeeded);
             if (succeeded == 1)
             {
                 return true;
