@@ -35,7 +35,7 @@ namespace Sudoku_web
         [WebMethod(EnableSession = true)]
         public string[] VulIn(int row, int column, int value)
         {
-            Controller.SetValueNoNotify((int)row, (int)column, (int)value);
+            Controller.SetValueNoNotify(column, row, value);
             return FetchTable();
         }
 
