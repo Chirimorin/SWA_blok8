@@ -33,8 +33,9 @@ namespace Sudoku_web
         }
        
         [WebMethod(EnableSession = true)]
-        public string[] VulIn()
+        public string[] VulIn(int row, int column, int value)
         {
+            Controller.SetValueNoNotify((int)row, (int)column, (int)value);
             return FetchTable();
         }
 
@@ -69,6 +70,12 @@ namespace Sudoku_web
         public string[] Cheat()
         {
             Controller.Cheat();
+            return FetchTable();
+        }
+
+        [WebMethod(EnableSession = true)]
+        public string[] GetField()
+        {
             return FetchTable();
         }
 

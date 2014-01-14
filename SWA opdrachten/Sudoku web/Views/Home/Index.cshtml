@@ -154,16 +154,31 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            NewGame();
+
+            $.ajax({
+                url: 'Sudoku.asmx/GetField',
+                data: '{ }',
+                dataType: 'json',
+                type: 'POST',
+                contentType: 'application/json',
+                success: function (data) {
+                    ParseData(data)
+                },
+                error: function (data) {
+                    alert('Er is een fout opgetreden bij het versturen van informatie');
+                }
+            })
+
             $(VulIn).click(function () {
-                var form = $(document.form);
-                var data = JSON.stringify(form.serializeArray());
-                var myjson = {};
-                $.each(form.data, function () { myjson[this.name] = this.value; });
-                console.log("sending data: " + myjson.data);
+                var row = $(document.form).find('select[name=row]').val();
+                var column = $(document.form).find('select[name=column]').val();
+                var value = $(document.form).find('select[name=value]').val();
+
+                var data = '{ "row":"' + row + '", "column":"' + column + '", "value":"' + value + '" }'
+
                 $.ajax({
                     url: 'Sudoku.asmx/VulIn',
-                    data: '{"name":"row","value":"1"}',
+                    data: data,
                     dataType: 'json',
                     type: 'POST',
                     contentType: 'application/json',
@@ -232,7 +247,19 @@
             })
 
             $(Nieuw).click(function () {
-                NewGame();
+                $.ajax({
+                    url: 'Sudoku.asmx/Nieuw',
+                    data: '{ }',
+                    dataType: 'json',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    success: function (data) {
+                        ParseData(data)
+                    },
+                    error: function (data) {
+                        alert('Er is een fout opgetreden bij het versturen van informatie');
+                    }
+                })
             })
 
             $(Cheat).click(function () {
@@ -251,23 +278,6 @@
                 })
             })
         })
-
-        function NewGame()
-        {
-            $.ajax({
-                url: 'Sudoku.asmx/Nieuw',
-                data: '{ }',
-                dataType: 'json',
-                type: 'POST',
-                contentType: 'application/json',
-                success: function (data) {
-                    ParseData(data)
-                },
-                error: function (data) {
-                    alert('Er is een fout opgetreden bij het versturen van informatie');
-                }
-            })
-        }
 
         function ParseData(data)
         {
@@ -361,5 +371,6 @@
             $("#Lbl87").html(data.d[79]);
             $("#Lbl88").html(data.d[80]);
         }
+
     </script>
 </div>
